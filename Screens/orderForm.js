@@ -19,8 +19,8 @@ import { auth, db } from "../Firebase/Config";
 import { doc, addDoc, collection, Timestamp } from "firebase/firestore";
 const orderForm = () => {
   const dispatch = useDispatch();
-  const { placeOrder } = bindActionCreators(actionCreators, dispatch);
-  const order = useSelector((state) => state.orderReducer);
+  // const { placeOrder } = bindActionCreators(actionCreators, dispatch);
+  // const order = useSelector((state) => state.orderReducer);
   console.log(order);
   
   const user = useContext(User);

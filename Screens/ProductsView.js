@@ -37,7 +37,7 @@ const ProductsView = ({ route }) => {
   const dispatch = useDispatch()
   
   const placeOrder = () => {
-    dispatch(actionCreators.placeOrder({id:product.id,quantity:2}))
+    // dispatch(actionCreators.placeOrder({id:product.id,quantity:2}))
     navigation.navigate('orderForm')
   };
 

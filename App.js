@@ -8,10 +8,10 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 // This Link Get My Firebase Folder In My File Config.js
-// import {db} from "./Firebase/Config";
+import {db} from "./Firebase/Config";
 
 // This Link Get My Navigation Folder In My File BottomNavigation.js
-// import BottomNavigation from "./Navigation/BottomNavigation";
+import BottomNavigation from "./Navigation/BottomNavigation";
 
 // This Links Get My Screens Folder
 import SignIn from "./Screens/Signin";
@@ -50,7 +50,7 @@ function App() {
 
   return (
     <>
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
         <User.Provider value={userData}>
           {kuxhbi && (
             <>
@@ -68,7 +68,7 @@ function App() {
             </>
           )}
         </User.Provider>
-      </Provider>
+      {/* </Provider> */}
     </>
   );
 }

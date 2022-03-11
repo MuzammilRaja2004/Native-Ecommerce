@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../Firebase/Config";
 import { CounterTwo } from "./Counter";
-import orderForm from "./orderForm";
+// import orderForm from "./orderForm";
 import { useNavigation } from '@react-navigation/native';
 
 // import { useSelector, useDispatch } from "react-redux";
@@ -28,18 +28,18 @@ const CardItems = ({ id }) => {
 
 
 
-  // const [quantity, setQuantity] = useState(1);
-  // const placeOrder = () => {
-  //   dispatch(actionCreators.placeOrder({id:product.id,quantity}))
-  //   navigation.navigate('orderForm')
-  // };
+  const [quantity, setQuantity] = useState(1);
+  const placeOrder = () => {
+    // dispatch(actionCreators.placeOrder({id:product.id,quantity}))
+    navigation.navigate('orderForm')
+  };
 
 
 
 
-const counter = (value) => {
-  setQuantity(value);
-}
+// const counter = (value) => {
+//   setQuantity(value);
+// }
 
   
 
@@ -66,7 +66,7 @@ const counter = (value) => {
             </View>
 
             <View style={styles.cartcounter_view}>
-              {/* <CounterTwo counter={counter} count={quantity} /> */}
+              <CounterTwo counter={counter} count={quantity} />
             </View>
           </View>
         </View>

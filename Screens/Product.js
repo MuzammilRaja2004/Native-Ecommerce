@@ -11,18 +11,18 @@ import {
   Alert,
 } from "react-native";
 
-// This Links Get My Screens Folder 
+// This Links Get My Screens Folder
 import Searchbar from "./Searchbar";
 import AddToCart from "./AddToCart";
 import ProductsView from "./ProductsView";
 
-// This Links Get My Firebase Folder 
+// This Links Get My Firebase Folder
 import { db } from "../Firebase/Config";
 
-// This Links Get My File App.js 
+// This Links Get My File App.js
 import { User } from "../App";
 
-// This Links Get From Firebase 
+// This Links Get From Firebase
 import {
   collection,
   onSnapshot,
@@ -32,12 +32,9 @@ import {
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 
-
 const Product = ({ navigation }) => {
-
-// Create State
+  // Create State
   const [product, setProduct] = useState([]);
-
 
   const userData = useContext(User);
 
@@ -52,11 +49,9 @@ const Product = ({ navigation }) => {
     });
   }, []);
 
-
   // This Function Work Doing onPress
   // This Function Create For Add To Cart User Id
   const addToCart = (id) => {
-
     // This Function Get From Firebase
     const docRef = doc(db, "users", userData.id);
     if (userData.cart.includes(id)) {
@@ -105,28 +100,51 @@ const Product = ({ navigation }) => {
                     </View>
                     <View>
                       <Text
-                        style={{ fontSize: 20, color: "#1d1b27", marginTop: 15 }}
+                        style={{
+                          fontSize: 20,
+                          color: "#1d1b27",
+                          marginTop: 15,
+                        }}
                       >
                         {items.model}
                       </Text>
-                      <Text
-                        style={{ fontSize: 17, color: "#1d1b27",  }}
-                      >
+                      <Text style={{ fontSize: 17, color: "#1d1b27" }}>
                         {items.brand}
                       </Text>
-                     
-                      <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                      <Text style={{ fontSize: 17, color: "#1d1b27",marginRight:10, }}>
-                        {items.price}
-                      </Text>
 
-                      <TouchableOpacity onPress={() => addToCart(items.id)} style={{backgroundColor:'#00cd85',padding:6,borderRadius:3,}}>
-                        {userData.cart.includes(items.id) ? (
-                          <Text style={{ fontSize: 15, color: "#ffffff" }}>Remove Cart</Text>
-                        ) : (
-                          <Text>Add To Cart</Text>
-                        )}
-                      </TouchableOpacity>
+                      <View
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 17,
+                            color: "#1d1b27",
+                            marginRight: 10,
+                          }}
+                        >
+                          {items.price}
+                        </Text>
+
+                        <TouchableOpacity
+                          onPress={() => addToCart(items.id)}
+                          style={{
+                            backgroundColor: "#00cd85",
+                            padding: 6,
+                            borderRadius: 3,
+                          }}
+                        >
+                          {userData.cart.includes(items.id) ? (
+                            <Text style={{ fontSize: 15, color: "#ffffff" }}>
+                              Remove Cart
+                            </Text>
+                          ) : (
+                            <Text>Add To Cart</Text>
+                          )}
+                        </TouchableOpacity>
                       </View>
                     </View>
                   </View>
@@ -157,4 +175,3 @@ const styles = StyleSheet.create({
     marginBottom: "30%",
   },
 });
-
