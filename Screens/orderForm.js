@@ -17,7 +17,7 @@ import { auth, db } from "../Firebase/Config";
 
 // This Link Get From Firebase
 import { doc, addDoc, collection, Timestamp } from "firebase/firestore";
-const orderForm = () => {
+const OrderForm = () => {
   const dispatch = useDispatch();
   // const { placeOrder } = bindActionCreators(actionCreators, dispatch);
   // const order = useSelector((state) => state.orderReducer);
@@ -99,7 +99,7 @@ const orderForm = () => {
   );
 };
 
-export default orderForm;
+export default OrderForm;
 
 const styles = StyleSheet.create({
   // Inner Main View
